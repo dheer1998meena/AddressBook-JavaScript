@@ -2,7 +2,13 @@ console.log("Welcome to address book problem.");
 // U1 Ability to create contact class and its object with certain fields.
 class Contact{
     // Spread operator used to provide multiple dynamic parameters to constructor
-    constructor(...param){
+    constructor(...param) {
+        //UC 7 refactor
+        if(checkDuplicate(param[0],param[1])!=0)
+        {
+            console.log("Contact with name: "+param[0]+" "+param[1]+" already exists!");
+            return;
+        }
         this.firstName = param[0];
         this.lastName = param[1];
         this.address = param[2];
@@ -110,7 +116,7 @@ try{
     //remove empty elements from array
     for(let i in addressBook)
     {
-        if(addressBook[i].firstname==undefined)
+        if(addressBook[i].firstName==undefined)
         addressBook.splice(i,1);
     }
     addressBook.forEach(contact=>console.log(contact.toString()));
@@ -161,7 +167,7 @@ console.log("Total no of contacts in array: "+count);
 // UC7 Ability to ensure there is no Duplicate Entry of the same Person in the Address Book
 function checkDuplicate(fname,lname)
 {
-    let count=addressBook.filter(contact => contact.firstname == fname && contact.lastname == lname).reduce(count=>count+1,0);
+    let count=addressBook.filter(contact => contact.firstName == fname && contact.lastName == lname).reduce(count=>count+1,0);
     return count;
 }
 
