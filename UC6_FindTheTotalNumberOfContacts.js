@@ -12,54 +12,54 @@ class Contact{
         this.phoneNo = param[6];
         this.emailId = param[7];
     }
-    //gettter and setter for firstName.
-    get firstName() { return this._firstName; }
-    set firstName(firstName) {
-        let firstNameRegExp = RegExp('^[A-Z]{1}[a-z]{2,}$');
-     if (firstNameRegExp.test(firstName))
-        this._firstName=firstName;
-     else
-        throw 'Invalid first name!';
+   //gettter and setter for firstName.
+   get firstName() { return this._firstName; }
+   set firstName(firstName) {
+       let firstNameRegExp = RegExp('^[A-Z]{1}[a-z]{2,}$');
+    if (firstNameRegExp.test(firstName))
+       this._firstName=firstName;
+    else
+       throw 'Invalid first name: '+firstName;
+   }
+
+    //getter and setter for lastName
+    get lastName() { return this._lastName; }
+    set lastName(lastName) {
+        let lastNameRegExp = RegExp('^[A-Z]{1}[a-z]{2,}$');
+    if (lastNameRegExp.test(lastName))
+        this._lastName = lastName;
+    else
+      throw 'Invalid last name: '+lastName;
     }
 
-     //getter and setter for lastName
-     get lastName() { return this._lastName; }
-     set lastName(lastName) {
-         let lastNameRegExp = RegExp('^[A-Z]{1}[a-z]{2,}$');
-     if (lastNameRegExp.test(lastName))
-         this._lastName = lastName;
-     else
-         throw 'Invalid last name!';
-     }
- 
-     //getter and setter for address
+    //getter and setter for address
     get address() { return this._address; }
     set address(address) {
-        let addressRegExp = RegExp('^[A-Za-z]{4,}$');
+        let addressRegExp = RegExp('^[A-Za-z ]{4,}[ ]*$');
         if (addressRegExp.test(address))
             this._address = address;
         else
-            throw 'Invalid address!';
+            throw 'Invalid address: '+address;
     }
 
     //getter and setter for city
     get city() { return this._city; }
     set city(city) {
-        let cityRegExp = RegExp('^[A-Za-z]{4,}$');
+        let cityRegExp = RegExp('^[A-Za-z ]{4,}$');
         if (cityRegExp.test(city))
             this._city = city;
         else
-            throw 'Invalid city!';
+            throw 'Invalid city: '+city;
     }
 
     //getter and setter for state
     get state() { return this._state; }
     set state(state) {
-        let stateRegExp = RegExp('^[A-Za-z]{4,}$');
+        let stateRegExp = RegExp('^[A-Za-z ]{4,}$');
         if (stateRegExp.test(state))
             this._state = state;
         else
-            throw 'Invalid state!';
+            throw 'Invalid state: '+state;
     }
 
     //getter and setter for zip
@@ -69,7 +69,7 @@ class Contact{
         if (zipRegExp.test(zip))
             this._zip = zip;
         else
-            throw 'Invalid zip!';
+            throw 'Invalid zip: '+zip;
     }
 
     // getter and setter for PhoneNo
@@ -79,18 +79,18 @@ class Contact{
         if (phoneRegExp.test(phoneNo))
             this._phoneNo = phoneNo;
         else
-            throw 'Invalid phone number!';
+            throw 'Invalid phone number: '+phoneNo;
     }
 
-    // getter and setter for email
-    get emailId() { return this._emailId; }
-    set emailId(emailId) {
-        let emailIdRegExp = RegExp('^[a-zA-Z0-9]+([.+_-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.][a-zA-Z]{3})+([.][a-zA-Z]{2})?$');
-        if (emailIdRegExp.test(emailId))
-            this._emailId = emailId;
-        else
-            throw 'Invalid email!';
-    }
+   // getter and setter for email
+   get emailId() { return this._emailId; }
+   set emailId(emailId) {
+       let emailIdRegExp = RegExp('^[a-zA-Z0-9]+([.+_-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.][a-zA-Z]{3})+([.][a-zA-Z]{2})?$');
+       if (emailIdRegExp.test(emailId))
+           this._emailId = emailId;
+           else
+           throw 'Invalid Email : '+emailId;
+   }
 
      // overriding toString() method
     toString() {
